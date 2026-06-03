@@ -3,13 +3,11 @@ import re
 from pathlib import Path
 
 
-FILE_PATH = "resume.pdf"
 
 
 SECTION_ALIASES = {
-    "summary": ["summary", "about", "about me", "profile", "objective", "career objective"],
     "experience": ["experience", "work experience", "professional experience", "employment"],
-    "internship": ["internship", "internships", "training", "industrial training"],
+    "projects": ["projects","project"],
     "skills": ["skills", "technical skills", "technologies", "tools", "tech stack"],
     "education": ["education", "academic background", "academics", "qualification"],
 }
@@ -96,19 +94,3 @@ def extract_resume_sections(cleaned_text: str) -> dict:
         for section, content in sections.items()
     }
 
-
-def main():
-    raw_text = extract_text_from_pdf(FILE_PATH)
-    print("Raw text type:", type(raw_text))
-
-    cleaned_text = clean_resume_text(raw_text)
-    sections = extract_resume_sections(cleaned_text)
-
-    print("\nExtracted Sections:")
-    for section_name, content in sections.items():
-        print(f"\n--- {section_name.upper()} ---")
-        print(content if content else "Not found")
-
-
-if __name__ == "__main__":
-    main()

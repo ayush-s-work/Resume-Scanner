@@ -39,14 +39,3 @@ def generate_embeddings(texts: List[str]) -> List[List[float]]:
 
     return embeddings.tolist()
 
-sections = {
-    "summary": "Backend developer with Python and FastAPI experience.",
-    "skills": "Python, FastAPI, PostgreSQL, Docker",
-    "education": "B.Tech in Computer Science"
-}
-
-texts = list(sections.values())
-embeddings = generate_embeddings(texts)
-
-for section_name, embedding in zip(sections.keys(), embeddings):
-    print(section_name, len(embedding))
