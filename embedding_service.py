@@ -24,18 +24,3 @@ def generate_embedding(text: str) -> List[float]:
     return embedding.tolist()
 
 
-def generate_embeddings(texts: List[str]) -> List[List[float]]:
-    """
-    Generate embeddings for multiple text chunks.
-    """
-
-    if not texts:
-        raise ValueError("Text list cannot be empty")
-
-    embeddings = model.encode(
-        texts,
-        normalize_embeddings=True
-    )
-
-    return embeddings.tolist()
-
